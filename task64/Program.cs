@@ -16,8 +16,34 @@ string ShowNumbers(int n)
     return ShowNumbers(n - 1) + " " + n;
 }
 
-// Написать функции переворота рекурсии
+char[] StringTransformationAaray(string str)
+{
+    char[] arr = new char[str.Length];
+    for (int i = 0; i < str.Length; i++)
+    {
+        arr[i] = str[i];
+    }
+    return arr;
+}
+
+char[] UpheavalArray(char[] arr1)
+{
+    int index = 0;
+    if (index < arr1.GetLength(0) / 2)
+    {
+        char buffer = arr1[arr1.GetLength(0) - 1];
+        arr1[arr1.GetLength(0) - 1 - index] = arr1[index];
+        arr1[index] = buffer;
+        index++;
+    }
+    return arr1;
+}
+
 
 Console.Clear();
 int n = DataEntry("Введите натуральное число n = ");
-System.Console.WriteLine();
+string numbers = ShowNumbers(n);
+
+char[] arr = StringTransformationAaray(numbers);
+
+Console.WriteLine(UpheavalArray(arr));
